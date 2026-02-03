@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout - Organic Store</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="loader-inner">
+        <div class="loader-leaf"></div>
+        <div class="loader-leaf"></div>
+        <div class="loader-leaf"></div>
+        <div class="loader-leaf"></div>
+      </div>
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="nav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-leaf"></i> Organic
+      </a>
+      
+      <div class="checkout-steps">
+        <span class="step completed"><i class="fas fa-shopping-cart"></i> Cart</span>
+        <span class="step active"><i class="fas fa-credit-card"></i> Checkout</span>
+        <span class="step"><i class="fas fa-check-circle"></i> Complete</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CHECKOUT SECTION -->
+  <section class="checkout-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7" data-aos="fade-right">
+          <form class="checkout-form" id="checkoutForm">
+            <!-- Contact Information -->
+            <div class="checkout-block">
+              <h4><i class="fas fa-user"></i> Contact Information</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>First Name *</label>
+                  <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                  <label>Last Name *</label>
+                  <input type="text" id="lastName" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Email Address *</label>
+                  <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                  <label>Phone Number *</label>
+                  <input type="tel" id="phone" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shipping Address -->
+            <div class="checkout-block">
+              <h4><i class="fas fa-map-marker-alt"></i> Shipping Address</h4>
+              <div class="form-group">
+                <label>Street Address *</label>
+                <input type="text" id="address" required>
+              </div>
+              <div class="form-group">
+                <label>Apartment, Suite, etc. (optional)</label>
+                <input type="text" id="apartment">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>City *</label>
+                  <input type="text" id="city" required>
+                </div>
+                <div class="form-group">
+                  <label>State *</label>
+                  <select id="state" required>
+                    <option value="">Select State</option>
+                    <option value="MH">Maharashtra</option>
+                    <option value="DL">Delhi</option>
+                    <option value="KA">Karnataka</option>
+                    <option value="TN">Tamil Nadu</option>
+                    <option value="GJ">Gujarat</option>
+                    <option value="WB">West Bengal</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>PIN Code *</label>
+                  <input type="text" id="pincode" required>
+                </div>
+                <div class="form-group">
+                  <label>Country</label>
+                  <input type="text" value="India" readonly>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shipping Method -->
+            <div class="checkout-block">
+              <h4><i class="fas fa-truck"></i> Shipping Method</h4>
+              <div class="shipping-options">
+                <label class="shipping-option">
+                  <input type="radio" name="shipping" value="standard" checked>
+                  <div class="option-content">
+                    <div class="option-info">
+                      <span class="option-title">Standard Delivery</span>
+                      <span class="option-desc">5-7 business days</span>
+                    </div>
+                    <span class="option-price">₹50</span>
+                  </div>
+                </label>
+                <label class="shipping-option">
+                  <input type="radio" name="shipping" value="express">
+                  <div class="option-content">
+                    <div class="option-info">
+                      <span class="option-title">Express Delivery</span>
+                      <span class="option-desc">2-3 business days</span>
+                    </div>
+                    <span class="option-price">₹100</span>
+                  </div>
+                </label>
+                <label class="shipping-option">
+                  <input type="radio" name="shipping" value="same-day">
+                  <div class="option-content">
+                    <div class="option-info">
+                      <span class="option-title">Same Day Delivery</span>
+                      <span class="option-desc">Order before 2 PM</span>
+                    </div>
+                    <span class="option-price">₹200</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="checkout-block">
+              <h4><i class="fas fa-credit-card"></i> Payment Method</h4>
+              <div class="payment-options">
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="card" checked>
+                  <div class="option-content">
+                    <i class="far fa-credit-card"></i>
+                    <span>Credit/Debit Card</span>
+                  </div>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="upi">
+                  <div class="option-content">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>UPI</span>
+                  </div>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="netbanking">
+                  <div class="option-content">
+                    <i class="fas fa-university"></i>
+                    <span>Net Banking</span>
+                  </div>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="cod">
+                  <div class="option-content">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Cash on Delivery</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Card Details -->
+              <div class="card-details" id="cardDetails">
+                <div class="form-group">
+                  <label>Card Number *</label>
+                  <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Expiry Date *</label>
+                    <input type="text" id="expiryDate" placeholder="MM/YY">
+                  </div>
+                  <div class="form-group">
+                    <label>CVV *</label>
+                    <input type="text" id="cvv" placeholder="123">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Name on Card *</label>
+                  <input type="text" id="cardName" placeholder="John Doe">
+                </div>
+              </div>
+
+              <!-- UPI Details -->
+              <div class="upi-details" id="upiDetails" style="display: none;">
+                <div class="form-group">
+                  <label>UPI ID *</label>
+                  <input type="text" placeholder="yourname@upi">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-lg-5" data-aos="fade-left">
+          <div class="order-summary">
+            <h4>Order Summary</h4>
+            
+            <div class="order-items" id="orderItems">
+              <!-- Order items will be loaded dynamically -->
+            </div>
+            
+            <div class="order-totals">
+              <div class="total-row">
+                <span>Subtotal</span>
+                <span id="checkoutSubtotal">₹0.00</span>
+              </div>
+              <div class="total-row">
+                <span>Shipping</span>
+                <span id="checkoutShipping">₹50.00</span>
+              </div>
+              <div class="total-row">
+                <span>Tax (18%)</span>
+                <span id="checkoutTax">₹0.00</span>
+              </div>
+              <div class="total-row discount" id="discountRow" style="display: none;">
+                <span>Discount</span>
+                <span id="checkoutDiscount">-₹0.00</span>
+              </div>
+              <div class="total-row grand-total">
+                <span>Total</span>
+                <span id="checkoutTotal">₹0.00</span>
+              </div>
+            </div>
+
+            <button type="submit" form="checkoutForm" class="place-order-btn" id="placeOrderBtn">
+              <i class="fas fa-lock"></i> Place Order
+            </button>
+
+            <div class="security-badges">
+              <div class="badge-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Payment</span>
+              </div>
+              <div class="badge-item">
+                <i class="fas fa-undo"></i>
+                <span>Easy Returns</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Success Modal -->
+  <div class="modal-overlay" id="orderSuccessModal">
+    <div class="modal-content success-modal">
+      <div class="success-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2>Order Placed Successfully!</h2>
+      <p>Thank you for your order. You will receive a confirmation email shortly.</p>
+      <div class="order-info">
+        <span>Order ID: <strong id="orderId">#ORG12345</strong></span>
+      </div>
+      <div class="modal-buttons">
+        <a href="shop.html" class="btn-secondary">Continue Shopping</a>
+        <a href="index.html" class="btn-primary">Go to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

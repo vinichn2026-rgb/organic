@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Organic Store - Fresh & Healthy</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="loader-inner">
+        <div class="loader-leaf"></div>
+        <div class="loader-leaf"></div>
+        <div class="loader-leaf"></div>
+        <div class="loader-leaf"></div>
+      </div>
+      <p>Loading Fresh Products...</p>
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scrollTop" class="scroll-top-btn">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="nav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-leaf"></i> Organic
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav m-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shop.html">Shop</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Categories
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="shop.html?category=fruits">Fruits</a></li>
+              <li><a class="dropdown-item" href="shop.html?category=vegetables">Vegetables</a></li>
+              <li><a class="dropdown-item" href="shop.html?category=dairy">Dairy</a></li>
+              <li><a class="dropdown-item" href="shop.html?category=snacks">Snacks</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Search Bar -->
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search products...">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <!-- User Actions -->
+        <div class="nav-actions">
+          <button class="action-btn" id="wishlistBtn" title="Wishlist">
+            <i class="far fa-heart"></i>
+            <span class="badge" id="wishlistCount">0</span>
+          </button>
+          
+          <button class="action-btn" id="userBtn" title="Account">
+            <i class="far fa-user"></i>
+          </button>
+          
+          <button class="action-btn" id="cartBtn" title="Cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SLIDER -->
+  <section class="hero-slider" id="home">
+    <div class="slider-container">
+      <div class="slides">
+        <!-- Slide 1 -->
+        <div class="slide active">
+          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+          <div class="slide-content">
+            <span class="slide-tag" data-aos="fade-down">100% Organic</span>
+            <h1 data-aos="fade-up" data-aos-delay="100">Fresh & Organic <br>Vegetables</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Farm to table, delivered to your doorstep</p>
+            <div class="slide-btns" data-aos="fade-up" data-aos-delay="300">
+              <a href="shop.html" class="btn-primary">Shop Now</a>
+              <a href="about.html" class="btn-secondary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide">
+          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+          <div class="slide-content">
+            <span class="slide-tag">Premium Quality</span>
+            <h1>Exotic Fruits <br>Collection</h1>
+            <p>Nature's sweetest gifts, handpicked for you</p>
+            <div class="slide-btns">
+              <a href="shop.html?category=fruits" class="btn-primary">Explore Fruits</a>
+              <a href="#" class="btn-secondary">View Offers</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide">
+          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1543362906-acfc16c67564?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+          <div class="slide-content">
+            <span class="slide-tag">Special Offer</span>
+            <h1>Get 30% Off <br>On First Order</h1>
+            <p>Use code: ORGANIC30 at checkout</p>
+            <div class="slide-btns">
+              <a href="shop.html" class="btn-primary">Claim Offer</a>
+              <a href="contact.html" class="btn-secondary">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slider Controls -->
+      <div class="slider-controls">
+        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      
+      <!-- Slider Dots -->
+      <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-truck-fast"></i>
+            </div>
+            <h5>Free Shipping</h5>
+            <p>On orders over ₹500</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <h5>Always Fresh</h5>
+            <p>Farm picked daily</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-medal"></i>
+            </div>
+            <h5>Premium Quality</h5>
+            <p>100% certified organic</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-headphones-alt"></i>
+            </div>
+            <h5>24/7 Support</h5>
+            <p>Dedicated support team</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES SECTION -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Categories</span>
+        <h2>Shop By Category</h2>
+        <p>Explore our wide range of organic products</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <a href="shop.html?category=fruits" class="category-card">
+            <div class="category-img">
+              <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fruits">
+            </div>
+            <div class="category-info">
+              <h4>Fresh Fruits</h4>
+              <span>25+ Products</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <a href="shop.html?category=vegetables" class="category-card">
+            <div class="category-img">
+              <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Vegetables">
+            </div>
+            <div class="category-info">
+              <h4>Vegetables</h4>
+              <span>30+ Products</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+          <a href="shop.html?category=dairy" class="category-card">
+            <div class="category-img">
+              <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dairy">
+            </div>
+            <div class="category-info">
+              <h4>Dairy Products</h4>
+              <span>15+ Products</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+          <a href="shop.html?category=snacks" class="category-card">
+            <div class="category-img">
+              <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Snacks">
+            </div>
+            <div class="category-info">
+              <h4>Healthy Snacks</h4>
+              <span>20+ Products</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING PRODUCTS -->
+  <section class="products-section" id="trending">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Trending</span>
+        <h2>What's Trending Now</h2>
+        <p>Our most popular organic products</p>
+      </div>
+      
+      <div class="row" id="trendingProducts">
+        <!-- Products will be loaded dynamically -->
+      </div>
+      
+      <div class="text-center" data-aos="fade-up">
+        <a href="shop.html" class="btn-primary">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER SECTION -->
+  <section class="promo-banner" data-aos="fade-up">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="banner-content">
+            <span class="banner-tag">Limited Time Offer</span>
+            <h2>Get Fresh Organic Fruits & Vegetables</h2>
+            <p>Subscribe to our weekly box and get 20% off on your first month</p>
+            <div class="banner-features">
+              <div class="banner-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>100% Organic</span>
+              </div>
+              <div class="banner-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Free Delivery</span>
+              </div>
+              <div class="banner-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Cancel Anytime</span>
+              </div>
+            </div>
+            <a href="shop.html" class="btn-primary">Subscribe Now</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fresh Produce">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section class="products-section bg-light">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Best Sellers</span>
+        <h2>Customer Favorites</h2>
+        <p>Products loved by our customers</p>
+      </div>
+      
+      <div class="row" id="bestSellers">
+        <!-- Products will be loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-us-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="why-us-image">
+            <img src="https://cdn.pixabay.com/photo/2016/01/02/01/49/lemon-1117565_1280.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Organic Farm">
+            <div class="experience-badge">
+              <span class="number">15+</span>
+              <span class="text">Years Experience</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="why-us-content">
+            <span class="section-tag">Why Choose Us</span>
+            <h2>We Deliver Only The Best Quality Products</h2>
+            <p>Our commitment to organic farming and sustainable practices ensures you receive the freshest, healthiest products.</p>
+            
+            <div class="why-us-features">
+              <div class="why-feature">
+                <div class="why-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="why-text">
+                  <h5>100% Organic</h5>
+                  <p>All products are certified organic, free from pesticides and chemicals.</p>
+                </div>
+              </div>
+              
+              <div class="why-feature">
+                <div class="why-icon">
+                  <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <div class="why-text">
+                  <h5>Locally Sourced</h5>
+                  <p>We partner with local farmers to bring you the freshest produce.</p>
+                </div>
+              </div>
+              
+              <div class="why-feature">
+                <div class="why-icon">
+                  <i class="fas fa-recycle"></i>
+                </div>
+                <div class="why-text">
+                  <h5>Eco-Friendly Packaging</h5>
+                  <p>Sustainable packaging to reduce environmental impact.</p>
+                </div>
+              </div>
+            </div>
+            
+            <a href="about.html" class="btn-primary">Read More About Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Testimonials</span>
+        <h2>What Our Customers Say</h2>
+        <p>Real reviews from our happy customers</p>
+      </div>
+      
+      <div class="testimonials-slider" data-aos="fade-up">
+        <div class="testimonial-card">
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>"The quality of organic vegetables is exceptional. I've been a customer for 2 years and never disappointed!"</p>
+          <div class="customer-info">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer">
+            <div>
+              <h5>Priya Sharma</h5>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>"Fast delivery and products are always fresh. The subscription box is a game changer for our family!"</p>
+          <div class="customer-info">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer">
+            <div>
+              <h5>Rahul Patel</h5>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>"Great customer service and the dry fruits collection is amazing. Highly recommend to everyone!"</p>
+          <div class="customer-info">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer">
+            <div>
+              <h5>Anita Kumar</h5>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-box" data-aos="zoom-in">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h3>Subscribe to Our Newsletter</h3>
+            <p>Get updates on new products, special offers and health tips!</p>
+          </div>
+          <div class="col-lg-6">
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Enter your email" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-widget">
+              <h4><i class="fas fa-leaf"></i> Organic</h4>
+              <p>Your trusted source for 100% organic and healthy products. We deliver freshness from farm to your table.</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="footer-widget">
+              <h5>Quick Links</h5>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="footer-widget">
+              <h5>Categories</h5>
+              <ul>
+                <li><a href="shop.html?category=fruits">Fruits</a></li>
+                <li><a href="shop.html?category=vegetables">Vegetables</a></li>
+                <li><a href="shop.html?category=dairy">Dairy</a></li>
+                <li><a href="shop.html?category=snacks">Snacks</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-widget">
+              <h5>Contact Info</h5>
+              <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> 123 Green Street, Mumbai, India</li>
+                <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                <li><i class="fas fa-envelope"></i> hello@organicstore.com</li>
+                <li><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 8:00 PM</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p>&copy; 2024 Organic Store. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6">
+            <div class="payment-methods">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="Mastercard">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/200px-UPI-Logo-vector.svg.png" alt="UPI">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeLoginModal">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="login">Login</button>
+        <button class="tab-btn" data-tab="register">Register</button>
+      </div>
+      
+      <!-- Login Form -->
+      <form class="auth-form active" id="loginForm">
+        <h3>Welcome Back!</h3>
+        <p>Login to your account</p>
+        
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Password</label>
+          <div class="password-input">
+            <input type="password" placeholder="Enter your password" required>
+            <i class="fas fa-eye toggle-password"></i>
+          </div>
+        </div>
+        
+        <div class="form-options">
+          <label class="checkbox-label">
+            <input type="checkbox" checked>
+            <span>Remember me</span>
+          </label>
+          <a href="#">Forgot Password?</a>
+        </div>
+        
+        <button type="submit" class="auth-btn">Login</button>
+        
+        <div class="social-auth">
+          <p>Or continue with</p>
+          <div class="social-btns">
+            <button type="button" class="social-btn google">
+              <i class="fab fa-google"></i>
+            </button>
+            <button type="button" class="social-btn facebook">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      
+      <!-- Register Form -->
+      <form class="auth-form" id="registerForm">
+        <h3>Create Account</h3>
+        <p>Join our organic family</p>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="First name" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Last name" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Password</label>
+          <div class="password-input">
+            <input type="password" placeholder="Create password" required>
+            <i class="fas fa-eye toggle-password"></i>
+          </div>
+        </div>
+        
+        <label class="checkbox-label">
+          <input type="checkbox" required>
+          <span>I agree to the <a href="#">Terms & Conditions</a></span>
+        </label>
+        
+        <button type="submit" class="auth-btn">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h4><i class="fas fa-shopping-cart"></i> Your Cart</h4>
+      <button class="close-cart" id="closeCart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items will be loaded dynamically -->
+    </div>
+    
+    <div class="cart-empty" id="cartEmpty">
+      <i class="fas fa-shopping-basket"></i>
+      <p>Your cart is empty</p>
+      <a href="shop.html" class="btn-primary">Start Shopping</a>
+    </div>
+    
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-subtotal">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">₹0.00</span>
+      </div>
+      <a href="cart.html" class="btn-secondary">View Cart</a>
+      <a href="checkout.html" class="btn-primary">Checkout</a>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW MODAL -->
+  <div class="quickview-overlay" id="quickviewOverlay"></div>
+  <div class="quickview-modal" id="quickviewModal">
+    <button class="quickview-close" id="closeQuickview">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="quickview-content" id="quickviewContent">
+      <!-- Content loaded dynamically -->
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
